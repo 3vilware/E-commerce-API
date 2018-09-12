@@ -140,15 +140,17 @@ def getProduct(request, id):
 
 @csrf_exempt
 def updateProductPrice(request):
-    if request.method == 'PUT':
+    if request.method == 'POST':
         # body = QueryDict(request.body)
         # print body.getlist('id')
-        # id = request.POST.get('id')
-        # id = int(id)
-        # newPrice = request.PUT.get('price')
-        return
-        info = request.META['HTTP_AUTHORIZATION']
+        # id = request.GET.get('id')
+        # body = json.dumps(request.body)
 
+        newPrice = request.POST.get('price')
+        id = request.POST.get('id')
+        id = int(id)
+
+        info = request.META['HTTP_AUTHORIZATION']
         try:
             data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
             print "Datos: ", data
@@ -172,5 +174,40 @@ def updateProductPrice(request):
                                 status=httplib.NOT_FOUND)
 
     else:
-        return HttpResponse(json.dumps({"Error": "PUT method is required"}), content_type="application/json",
+        return HttpResponse(json.dumps({"Error": "POST method is required"}), content_type="application/json",
                             status=httplib.BAD_REQUEST)
+
+
+@csrf_exempt
+def deleteProduct(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        id = int(id)
+
+        info = request.META['HTTP_AUTHORIZATION']
+        try:
+            data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
+            print "Datos: ", data
+        except jwt.ExpiredSignature:
+            return HttpResponse(json.dumps({"Error": "Expired token"}), content_type="application/json",
+                                status=httplib.UNAUTHORIZED)
+        except jwt.InvalidTokenError:
+            return HttpResponse(json.dumps({"Error": "Invalid token"}), content_type="application/json",
+                                status=httplib.UNAUTHORIZED)
+
+        try:
+            product = Product.objects.get(pk=id)
+            product.delete()
+
+            return HttpResponse(json.dumps({"Success": "Product has been deleted!"}),
+                                content_type="application/json",
+                                status=httplib.OK)
+        except ObjectDoesNotExist:
+            return HttpResponse(json.dumps({"Error": "Product does not exist"}), content_type="application/json",
+                                status=httplib.NOT_FOUND)
+
+    else:
+        return HttpResponse(json.dumps({"Error": "POST method is required"}), content_type="application/json",
+                            status=httplib.BAD_REQUEST)
+
+

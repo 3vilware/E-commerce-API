@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^createProduct/$', serilizer.createProduct, name="createProduct"),
     url(r'^getProduct/(?P<id>\w+)/$', serilizer.getProduct, name="getProduct"),
     url(r'^updateProductPrice/$', serilizer.updateProductPrice, name="updateProductPrice"),
+    url(r'^deleteProduct/$', serilizer.deleteProduct, name="deleteProduct"),
 
 ]
