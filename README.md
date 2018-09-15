@@ -27,6 +27,9 @@ Type on project root:
   - [GET /getProductByName/[name]](#get-getproductbynamename)	
   - [GET /getAllProducts/[orderby]](#get-getallproductsorderby)
   - [POST /updateProductPrice](#post-updateproductprice)
+  - [POST /likeProduct](#post-likeproduct)
+  - [POST /buyProduct](#post-buyproduct)
+  - [POST /salesLog](#post-saleslog)
   
   
   
@@ -189,7 +192,69 @@ Request body:
 > Code: `200 OK` <br />
 
 
+### POST /likeProduct
+For this operation the user must be "registered" kind. <br/>
+Example: http://example.com/api/v1/likeProduct
 
+Request body:
+
+	{
+	   "productId" : "1",
+	}
+> Authorization header: [token]
+  
+ Good response: <br />
+ 
+	{
+	   "success": "Like Saved!"
+	}
+  
+> Code: `200 OK` <br />
+
+
+### POST /buyProduct
+For this operation the user must be "registered" kind. <br/>
+Example: http://example.com/api/v1/buyProduct
+
+Request body:
+
+	{
+	   "productId" : "1",
+	   "quantity" : "1"
+	}
+> Authorization header: [token]
+  
+ Good response: <br />
+ 
+	{
+	   "success": "Purchase made successfully"
+	}
+  
+> Code: `200 OK` <br />
+
+
+### POST /salesLog
+For this operation the user must be "admin" kind. <br/>
+Example: http://example.com/api/v1/salesLog
+
+Request body:
+
+> Authorization header: [token]
+  
+ Good response: <br />
+ it returns a log about all sales made.
+ 
+	{
+	   	"product": "iPhone X",
+		"price": "6000",
+		"buyer": "registered",
+		"date": "2018-09-15 18:28:19.363505+00:00",
+		"total": "6000.0",
+		"id": 1,
+		"quantity": 1
+	}
+  
+> Code: `200 OK` <br />
 
 
 
