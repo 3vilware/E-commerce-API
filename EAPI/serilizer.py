@@ -169,7 +169,9 @@ def deleteProduct(request):
         if permission.kind is UserKind.admin.value:
             try:
                 product = Product.objects.get(pk=id)
-                product.delete()
+                # product.delete()
+                product.active = False
+                product.save()
 
                 return JsonResponse({"success": "Product has been deleted!"},
                                     content_type="application/json",
@@ -191,9 +193,9 @@ def getAllProducts(request, orderby):
 
     try:
         if str(orderby) == 'name':
-            products = Product.objects.all().order_by('name')
+            products = Product.objects.filter(active=True).order_by('name')
         else:
-            products = Product.objects.all().order_by('-likes')
+            products = Product.objects.filter(active=True).order_by('-likes')
 
         for product in products:
             data = {"id":str(product.pk), "Name":product.name, "NPC":product.npc, "Stock":str(product.stock),
@@ -213,7 +215,7 @@ def getProductByName(request, name):
     dataJson = {}
 
     try:
-        products = Product.objects.filter(name__contains=name)
+        products = Product.objects.filter(name__contains=name, active=True)
     except ObjectDoesNotExist:
         return JsonResponse({"error": "Product does not exists"}, content_type="application/json",
                             status=httplib.NOT_FOUND)
@@ -313,16 +315,20 @@ def salesLog(request):
         return user
 
     permission = GeneralUser.objects.get(user=user)
-    if permission.kind is UserKind.registered.value:
+    if permission.kind is UserKind.admin.value:
         tickets = Ticket.objects.all()
 
-        for ticket in tickets:
-            sale = Sale.objects.get(ticket=ticket)
-            data = {"id":ticket.pk, "date":str(ticket.date), "total":str(ticket.total), "product":sale.product.name,
-                    "quantity":sale.quantity, "price":str(sale.price), "buyer":ticket.buyer.username}
-            salesList.append(data)
+        if tickets:
+            for ticket in tickets:
+                sale = Sale.objects.get(ticket=ticket)
+                data = {"id":ticket.pk, "date":str(ticket.date), "total":str(ticket.total), "product":sale.product.name,
+                        "quantity":sale.quantity, "price":str(sale.price), "buyer":ticket.buyer.username}
+                salesList.append(data)
 
-        return JsonResponse(salesList, content_type="application/json", status=httplib.OK, safe=False)
+            return JsonResponse(salesList, content_type="application/json", status=httplib.OK, safe=False)
+        else:
+            return JsonResponse({"error":"No data"}, content_type="application/json", status=httplib.NO_CONTENT, safe=False)
+
     else:
         return JsonResponse({"error": "Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
 

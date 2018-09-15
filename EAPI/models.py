@@ -16,6 +16,7 @@ class Product(models.Model):
     price = models.IntegerField(null=True)
     likes = models.IntegerField(default=0)
     last_update = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
 
 class UserLikeProduct(models.Model):
     product = models.ForeignKey(Product)
