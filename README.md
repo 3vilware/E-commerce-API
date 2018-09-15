@@ -264,4 +264,4 @@ Request body:
 
 
 ## Test in Postman
-You can test the app easily using [Postman](https://www.getpostman.com/) importing the *E-commerce.postman_collection.json* file.
+You can test the app easily using [Postman](https://www.getpostman.com/) importing the [E-commerce.postman_collection.json](https://github.com/3vilware/E-commerce-API/blob/master/E-commerce.postman_collection.json) file.
