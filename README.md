@@ -260,3 +260,8 @@ Request body:
 
 
 ## Live Demo 🚀
+
+
+
+## Test in Postman
+You can test the app easily using [Postman](https://www.getpostman.com/) importing the *E-commerce.postman_collection.json* file.
