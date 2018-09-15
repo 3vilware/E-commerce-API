@@ -24,7 +24,13 @@ Type on project root:
   - [POST /loguin](#post-loguin)
   - [POST /createProduct](#post-createproduct)
   - [GET /getProduct/[id]](#get-getproductid)
-
+  - [GET /getProductByName/[name]](#get-getproductbynamename)	
+  - [GET /getAllProducts/[orderby]](#get-getallproductsorderby)
+  - [POST /updateProductPrice](#post-updateproductprice)
+  
+  
+  
+  
   
   
   
@@ -113,6 +119,74 @@ Example: http://example.com/api/v1/getProduct/[id]
   
 > Code: `200 OK` <br />
 
+### GET /getProductByName/[name]
+  
+Example: http://example.com/api/v1/getProductByName/iPhone
+
+  
+ Good response: <br />
+ 
+	{
+	   "Name": "iPhone X",
+	    "Price": "19900",
+	    "NPC": "123456",
+	    "last_update": "2018-09-15 17:21:12.907826+00:00",
+	    "likes": 0,
+	    "id": 1,
+	    "Stock": "10"
+	}
+  
+> Code: `200 OK` <br />
+
+### GET /getAllProducts/[orderby]
+* There are 2 parameters avalible:
+	* name
+	* likes
+Example: http://example.com/api/v1/getAllProducts/name
+
+  
+ Good response: <br />
+ 
+	{
+	      	"Name": "iPhone 8",
+		"Price": "12500",
+		"NPC": "123455",
+		"last_update": "2018-09-15 17:21:12.907826+00:00",
+		"likes": 0,
+		"id": "2",
+		"Stock": "10"
+	}
+	{
+	  	"Name": "iPhone X",
+	   	"Price": "19900",
+	   	"NPC": "123456",
+	   	"last_update": "2018-09-15 17:21:12.907826+00:00",
+	   	"likes": 0,
+	   	"id": 1,
+	   	"Stock": "10"
+	}
+  
+> Code: `200 OK` <br />
+
+### POST /updateProductPrice
+
+Example: http://example.com/api/v1/updateProductPrice
+
+Request body:
+
+	{
+	   "id" : "1",
+	   "price" : "20000",
+	}
+> Authorization header: [token]
+  
+ Good response: <br />
+ 
+	{
+	   "success": "Product has been updated!"
+	}
+  
+> Code: `200 OK` <br />
 
 
 
