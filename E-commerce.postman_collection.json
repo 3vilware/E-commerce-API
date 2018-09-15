@@ -41,12 +41,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/createUser/",
+					"raw": "localhost:8000/api/v1/createUser/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"createUser",
 						""
 					]
@@ -83,12 +85,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/loguin/",
+					"raw": "localhost:8000/api/v1/loguin/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"loguin",
 						""
 					]
@@ -104,7 +108,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImV4cCI6MTUzNjk2OTM3NH0.U1kGsTObnlOGuJgXzgxEbu0NQjYu8OG-0PifjHoNovc"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cCI6MTUzNzAzMzc5OX0.S2BCnbk9JrXTLMFkbLFdf3hQ5SJYSeZ7whGc_AhY63M"
 					}
 				],
 				"body": {
@@ -112,13 +116,13 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "iPhone X",
+							"value": "iPhone 8",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "npc",
-							"value": "123456",
+							"value": "123455",
 							"description": "",
 							"type": "text"
 						},
@@ -130,19 +134,21 @@
 						},
 						{
 							"key": "price",
-							"value": "28800",
+							"value": "12500",
 							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/createProduct/",
+					"raw": "localhost:8000/api/v1/createProduct/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"createProduct",
 						""
 					]
@@ -155,20 +161,17 @@
 			"name": "Get a product",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2MTE0OH0.UiCEfpoQxEwNNBK1cdes-r7y9G9Hjn1Is527jj2lvAo"
-					}
-				],
+				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:8000/getProduct/{PRODUCT_ID}",
+					"raw": "localhost:8000/api/v1/getProduct/{PRODUCT_ID}",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"getProduct",
 						"{PRODUCT_ID}"
 					]
@@ -184,12 +187,14 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:8000/getProductByName/{PRODUCT_NAME}",
+					"raw": "localhost:8000/api/v1/getProductByName/{PRODUCT_NAME}",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"getProductByName",
 						"{PRODUCT_NAME}"
 					]
@@ -202,20 +207,17 @@
 			"name": "Get all products ordered by name or likes",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2NjQ1OH0.xPmD5qMS23d_0gxeMjVNUbxIGaxKAiIloCnPISQf9X0"
-					}
-				],
+				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:8000/getAllProducts/{STRING: name or likes}",
+					"raw": "localhost:8000/api/v1/getAllProducts/{STRING: name or likes}",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"getAllProducts",
 						"{STRING: name or likes}"
 					]
@@ -231,7 +233,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjc1NjI5Mn0.VGwVd5IUSXzkyPrTbH6cM0Sx5etmHk2DUMihMh9zqIg"
+						"value": "your_token"
 					}
 				],
 				"body": {
@@ -252,12 +254,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/updateProductPrice/",
+					"raw": "localhost:8000/api/v1/updateProductPrice/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"updateProductPrice",
 						""
 					]
@@ -273,7 +277,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjg0NDk1MH0.8YV0FWXCkNzudB7LX1xgOTXmi2ZYkCw4uk0A1GyRhWE"
+						"value": "your_token"
 					}
 				],
 				"body": {
@@ -281,19 +285,21 @@
 					"formdata": [
 						{
 							"key": "productId",
-							"value": "4",
+							"value": "2",
 							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/likeProduct/",
+					"raw": "localhost:8000/api/v1/likeProduct/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"likeProduct",
 						""
 					]
@@ -347,7 +353,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "your_token"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImV4cCI6MTUzNzAzNzc2Mn0.On30ptq9vdby_290OpQjfd5P3JF_sRxVqIbhDTY_dpg"
 					}
 				],
 				"body": {
@@ -368,12 +374,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/buyProduct/",
+					"raw": "localhost:8000/api/v1/buyProduct/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"buyProduct",
 						""
 					]
@@ -389,17 +397,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "your_token"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cCI6MTUzNzAzODA4NX0.xvlFB2QUXL8qmVhmtYWp5x-vn71qvYcgtmhik1jKRRM"
 					}
 				],
 				"body": {},
 				"url": {
-					"raw": "localhost:8000/salesLog",
+					"raw": "localhost:8000/api/v1/salesLog",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"salesLog"
 					]
 				},
