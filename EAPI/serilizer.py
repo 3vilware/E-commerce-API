@@ -12,7 +12,7 @@ from enumerations import UserKind
 import json
 
 
-TOKEN_LIFE = 3600
+TOKEN_LIFE = 1800
 
 @csrf_exempt
 def createUser(request):

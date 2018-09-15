@@ -1,419 +1,373 @@
 {
-	"id": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-	"name": "E-commerce",
-	"description": "API for test working",
-	"order": [
-		"0725ec1b-fce8-697d-7245-1728cfe7a754",
-		"dd8ee28b-f925-17f0-94f5-c066f5a85204",
-		"9d7b274e-a5eb-1134-8967-4028af39badb",
-		"b8113375-a583-a5ed-1177-2745a03ce55f",
-		"b43cfd29-b08a-61ba-7ff4-19883e1e8d8f",
-		"74617ea0-4691-957d-04aa-23190f029d2a",
-		"2c4c77a6-d0af-aa6a-5154-1f4c0971bf40",
-		"4c9b4248-0cfb-6614-f68d-f9acf07bd65e",
-		"f2f2461c-1b83-417c-df7a-9f3a1d0a465d",
-		"e8961f78-2893-ff51-3889-9be273f46eba"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1536973822575,
-	"owner": 0,
-	"public": false,
-	"events": [],
-	"variables": [],
-	"auth": null,
-	"requests": [
+	"info": {
+		"name": "E-commerce",
+		"_postman_id": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
+		"description": "API for test working",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "0725ec1b-fce8-697d-7245-1728cfe7a754",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:8000/createUser/",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "user",
-					"value": "admin",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "test",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "repeat",
-					"value": "test",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "kind",
-					"value": "1",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1536975704325,
 			"name": "Create User",
-			"description": "User creation free only for test purpose",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "2c4c77a6-d0af-aa6a-5154-1f4c0971bf40",
-			"headers": "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjc1NjI5Mn0.VGwVd5IUSXzkyPrTbH6cM0Sx5etmHk2DUMihMh9zqIg\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjc1NjI5Mn0.VGwVd5IUSXzkyPrTbH6cM0Sx5etmHk2DUMihMh9zqIg",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/updateProductPrice/",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "POST",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"data": [
-				{
-					"key": "id",
-					"value": "1",
-					"description": "",
-					"type": "text",
-					"enabled": true
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "admin",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "repeat",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "kind",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
 				},
-				{
-					"key": "price",
-					"value": "6000",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"name": "Update product price",
-			"description": "This url only works for admin users.",
-			"descriptionFormat": "html",
-			"time": 1536975272394,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "4c9b4248-0cfb-6614-f68d-f9acf07bd65e",
-			"headers": "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjg0NDk1MH0.8YV0FWXCkNzudB7LX1xgOTXmi2ZYkCw4uk0A1GyRhWE\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjg0NDk1MH0.8YV0FWXCkNzudB7LX1xgOTXmi2ZYkCw4uk0A1GyRhWE",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/likeProduct/",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "POST",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"data": [
-				{
-					"key": "productId",
-					"value": "4",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"name": "Like a product",
-			"description": "This url only works for registered users and this users can only like one article once.",
-			"descriptionFormat": "html",
-			"time": 1536975399548,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "74617ea0-4691-957d-04aa-23190f029d2a",
-			"headers": "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2NjQ1OH0.xPmD5qMS23d_0gxeMjVNUbxIGaxKAiIloCnPISQf9X0\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2NjQ1OH0.xPmD5qMS23d_0gxeMjVNUbxIGaxKAiIloCnPISQf9X0",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/getAllProducts/{STRING: name or likes}",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1536975221587,
-			"name": "Get all products ordered by name or likes",
-			"description": "You can pass an argument for this URL, this should be: \n-{url}/name \n\tor \n-{url}/likes.",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "9d7b274e-a5eb-1134-8967-4028af39badb",
-			"headers": "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImV4cCI6MTUzNjk2OTM3NH0.U1kGsTObnlOGuJgXzgxEbu0NQjYu8OG-0PifjHoNovc\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImV4cCI6MTUzNjk2OTM3NH0.U1kGsTObnlOGuJgXzgxEbu0NQjYu8OG-0PifjHoNovc",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/createProduct/",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "POST",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"data": [
-				{
-					"key": "name",
-					"value": "iPhone X",
-					"description": "",
-					"type": "text",
-					"enabled": true
+				"url": {
+					"raw": "localhost:8000/createUser/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"createUser",
+						""
+					]
 				},
-				{
-					"key": "npc",
-					"value": "123456",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "stock",
-					"value": "10",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "price",
-					"value": "28800",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"name": "Create product",
-			"description": "Add a new product on the store.",
-			"descriptionFormat": "html",
-			"time": 1536974587163,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
+				"description": "User creation free only for test purpose"
+			},
+			"response": []
 		},
 		{
-			"id": "b43cfd29-b08a-61ba-7ff4-19883e1e8d8f",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:8000/getProductByName/{PRODUCT_NAME}",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "GET",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"data": null,
-			"dataMode": "params",
-			"name": "Get product by name",
-			"description": "Everyone can get a product or a list of products looking for a string that matches.",
-			"descriptionFormat": "html",
-			"time": 1536975009513,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "b8113375-a583-a5ed-1177-2745a03ce55f",
-			"headers": "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2MTE0OH0.UiCEfpoQxEwNNBK1cdes-r7y9G9Hjn1Is527jj2lvAo\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2MTE0OH0.UiCEfpoQxEwNNBK1cdes-r7y9G9Hjn1Is527jj2lvAo",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/getProduct/{PRODUCT_ID}",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1536975038101,
-			"name": "Get a product",
-			"description": "Everyone can get a product searching by id.",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "dd8ee28b-f925-17f0-94f5-c066f5a85204",
-			"headers": "Authorization: \n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/loguin/",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"events": [],
-			"auth": null,
-			"method": "POST",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"data": [
-				{
-					"key": "user ",
-					"value": "registered",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "test",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
 			"name": "Loguin",
-			"description": "Loguin into app",
-			"descriptionFormat": "html",
-			"time": 1536974188232,
-			"version": 2,
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "e8961f78-2893-ff51-3889-9be273f46eba",
-			"headers": "Authorization: your_token\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "your_token",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/salesLog",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1536975625365,
-			"name": "Sales log",
-			"description": "This url is just for admin users and you can see all purchases made by the users.",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "f2f2461c-1b83-417c-df7a-9f3a1d0a465d",
-			"headers": "Authorization: your_token\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "your_token",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:8000/buyProduct/",
-			"queryParams": [],
-			"events": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "productId",
-					"value": "1",
-					"description": "",
-					"type": "text",
-					"enabled": true
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user ",
+							"value": "admin",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						}
+					]
 				},
-				{
-					"key": "quantity",
-					"value": "1",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1536975506625,
+				"url": {
+					"raw": "localhost:8000/loguin/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loguin",
+						""
+					]
+				},
+				"description": "Loguin into app"
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImV4cCI6MTUzNjk2OTM3NH0.U1kGsTObnlOGuJgXzgxEbu0NQjYu8OG-0PifjHoNovc"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "iPhone X",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "npc",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "10",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "28800",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/createProduct/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"createProduct",
+						""
+					]
+				},
+				"description": "Add a new product on the store."
+			},
+			"response": []
+		},
+		{
+			"name": "Get a product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2MTE0OH0.UiCEfpoQxEwNNBK1cdes-r7y9G9Hjn1Is527jj2lvAo"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/getProduct/{PRODUCT_ID}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"getProduct",
+						"{PRODUCT_ID}"
+					]
+				},
+				"description": "Everyone can get a product searching by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/getProductByName/{PRODUCT_NAME}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"getProductByName",
+						"{PRODUCT_NAME}"
+					]
+				},
+				"description": "Everyone can get a product or a list of products looking for a string that matches."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products ordered by name or likes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjk2NjQ1OH0.xPmD5qMS23d_0gxeMjVNUbxIGaxKAiIloCnPISQf9X0"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/getAllProducts/{STRING: name or likes}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"getAllProducts",
+						"{STRING: name or likes}"
+					]
+				},
+				"description": "You can pass an argument for this URL, this should be: \n-{url}/name \n\tor \n-{url}/likes."
+			},
+			"response": []
+		},
+		{
+			"name": "Update product price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjc1NjI5Mn0.VGwVd5IUSXzkyPrTbH6cM0Sx5etmHk2DUMihMh9zqIg"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "6000",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/updateProductPrice/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"updateProductPrice",
+						""
+					]
+				},
+				"description": "This url only works for admin users."
+			},
+			"response": []
+		},
+		{
+			"name": "Like a product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTUzNjg0NDk1MH0.8YV0FWXCkNzudB7LX1xgOTXmi2ZYkCw4uk0A1GyRhWE"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productId",
+							"value": "4",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/likeProduct/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"likeProduct",
+						""
+					]
+				},
+				"description": "This url only works for registered users and this users can only like one article once."
+			},
+			"response": []
+		},
+		{
 			"name": "Buy a product",
-			"description": "This url just work for registered users.",
-			"collectionId": "a9779e37-5bc5-0290-a2ea-de8b987390b8",
-			"responses": [],
-			"currentHelper": null,
-			"helperAttributes": null
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "your_token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productId",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/buyProduct/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"buyProduct",
+						""
+					]
+				},
+				"description": "This url just work for registered users."
+			},
+			"response": []
+		},
+		{
+			"name": "Sales log",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "your_token"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/salesLog",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"salesLog"
+					]
+				},
+				"description": "This url is just for admin users and you can see all purchases made by the users."
+			},
+			"response": []
 		}
 	]
 }
