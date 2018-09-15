@@ -22,6 +22,10 @@ Type on project root:
 
   - [POST /createUser](#post-createuser)
   - [POST /loguin](#post-loguin)
+  - [POST /createProduct](#post-createproduct)
+  - [GET /getProduct/[id]](#get-getproductid)
+
+  
   
   
 ### POST /createUser
@@ -49,7 +53,8 @@ Request body:
 > Code: `201 Created` <br />
 
 ### POST /loguin
-Right response returns a token for authorization headers. <br/>
+Right response returns a token for authorization headers.<br>
+The token was configured to expire in 30 minutes. <br/>
 Example: http://example.com/api/v1/loguin
 
 
@@ -67,3 +72,52 @@ Good response: <br />
 	}
   
 > Code: `202 Accepted` <br />
+
+### POST /createProduct
+Example: http://example.com/api/v1/createProduct
+
+Request body:
+
+	{
+	   "name" : "iPhone X",
+	   "npc" : "123456",
+	   "stock" : "10",
+	   "price" : "19900"
+	}
+> Authorization header: [token]
+  
+ Good response: <br />
+ 
+	{
+	   "success": "A new product has been created!"
+	}
+  
+> Code: `201 Created` <br />
+
+### GET /getProduct/[id]
+  
+Example: http://example.com/api/v1/getProduct/[id]
+
+  
+ Good response: <br />
+ 
+	{
+	   "Name": "iPhone X",
+	    "Price": "19900",
+	    "NPC": "123456",
+	    "last_update": "2018-09-15 17:21:12.907826+00:00",
+	    "likes": 0,
+	    "id": 1,
+	    "Stock": "10"
+	}
+  
+> Code: `200 OK` <br />
+
+
+
+
+
+
+
+
+## Live Demo 🚀
