@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d23c52ed-fe93-4d22-8996-ab6efd441504" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/959b962d-78d5-4700-9829-7e5945d7142d/_metadata_/metadata_i.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/ef423c7f-254e-4fdd-81e2-69659b9ebaf2/_metadata_/metadata_i.len" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EAPI/commons.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EAPI/enumerations.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EAPI/sexample.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAPI/models.py" afterPath="$PROJECT_DIR$/EAPI/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAPI/serilizer.py" afterPath="$PROJECT_DIR$/EAPI/serilizer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecomerce/urls.py" afterPath="$PROJECT_DIR$/ecomerce/urls.py" />
     </list>
@@ -36,11 +30,11 @@
     <expand>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="db.sqlite3" type="e3449647:DbNodeDescriptor" />
+        <item name="Django default2" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="db.sqlite3" type="e3449647:DbNodeDescriptor" />
+        <item name="Django default2" type="e3449647:DbNodeDescriptor" />
         <item name="main" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
@@ -54,21 +48,9 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="77" column="2" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
+            <state relative-caret-position="479">
+              <caret line="57" column="53" lean-forward="false" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sexample.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EAPI/sexample.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="45" column="132" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="45" selection-end-column="132" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +58,20 @@
       <file leaf-file-name="serilizer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EAPI/serilizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state relative-caret-position="-60">
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commons.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EAPI/commons.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="766">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -88,8 +82,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EAPI/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="388">
+              <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -100,8 +94,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecomerce/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+            <state relative-caret-position="424">
+              <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
               <folding>
                 <element signature="e#642#674#0" expanded="true" />
               </folding>
@@ -114,7 +108,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>date</find>
+      <find>Error</find>
+      <find>successf</find>
+      <find>ID</find>
+      <find>checktoken</find>
+      <find>Userid</find>
+      <find>httpresponse</find>
+      <find>JsonResponse</find>
+      <find>print</find>
     </findStrings>
+    <replaceStrings>
+      <replace>error</replace>
+      <replace>JsonResponse</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,9 +128,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/EAPI/models.py" />
         <option value="$PROJECT_DIR$/ecomerce/urls.py" />
+        <option value="$PROJECT_DIR$/EAPI/enumerations.py" />
+        <option value="$PROJECT_DIR$/EAPI/models.py" />
         <option value="$PROJECT_DIR$/EAPI/serilizer.py" />
+        <option value="$PROJECT_DIR$/EAPI/commons.py" />
       </list>
     </option>
   </component>
@@ -182,7 +190,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/db.sqlite3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -258,7 +266,7 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25262576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26091763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32504147" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -302,16 +310,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py">
+    <entry file="file://$PROJECT_DIR$/EAPI/commons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="45" column="132" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="45" selection-end-column="132" />
+        <state relative-caret-position="162">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="e#642#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/serilizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5562">
+          <caret line="321" column="60" lean-forward="true" selection-start-line="321" selection-start-column="60" selection-end-line="321" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" column="2" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py" />
+    <entry file="file://$PROJECT_DIR$/EAPI/commons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="e#642#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/serilizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4842">
+          <caret line="281" column="60" lean-forward="true" selection-start-line="281" selection-start-column="60" selection-end-line="282" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" column="2" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py" />
+    <entry file="file://$PROJECT_DIR$/EAPI/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding>
+            <element signature="e#642#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/serilizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2718">
+          <caret line="162" column="50" lean-forward="false" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" column="2" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py" />
     <entry file="file://$PROJECT_DIR$/EAPI/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -349,48 +484,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
+    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py" />
+    <entry file="file://$PROJECT_DIR$/key.pem">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="77" column="2" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EAPI/sexample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="45" column="132" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="45" selection-end-column="132" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EAPI/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ecomerce/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+        <state relative-caret-position="424">
+          <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
           <folding>
             <element signature="e#642#674#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ecomerce/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="57" column="53" lean-forward="false" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/enumerations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d8f9c0ed/743e99de-e5f3-4386-bf55-b98333fb9c93/main.EAPI_generaluser">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/743e99de-e5f3-4386-bf55-b98333fb9c93">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>743e99de-e5f3-4386-bf55-b98333fb9c93</OriginalElement>
+          <nodes>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.EAPI_sale</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.django_session</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_group</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.django_content_type</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_permission</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.EAPI_generaluser</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_user_groups</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.django_migrations</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.django_admin_log</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_user_user_permissions</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.EAPI_ticket</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_group_permissions</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.auth_user</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.EAPI_product</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.EAPI_userlikeproduct</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.sqlite_sequence</node>
+            <node x="" y="">743e99de-e5f3-4386-bf55-b98333fb9c93.TABLE:main.sqlite_master</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.46377708978328175" x="797.5" y="491.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d8f9c0ed/743e99de-e5f3-4386-bf55-b98333fb9c93/main.auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/d8f9c0ed/743e99de-e5f3-4386-bf55-b98333fb9c93/main.EAPI_product">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EAPI/commons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EAPI/serilizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state relative-caret-position="-60">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

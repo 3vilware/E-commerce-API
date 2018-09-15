@@ -17,3 +17,19 @@ class Product(models.Model):
     likes = models.IntegerField(default=0)
     last_update = models.DateTimeField(auto_now=True)
 
+class UserLikeProduct(models.Model):
+    product = models.ForeignKey(Product)
+    user = models.ForeignKey(User)
+
+
+class Ticket(models.Model):
+    total = models.FloatField(null=True)
+    date = models.DateTimeField(auto_now=True)
+    buyer = models.ForeignKey(User)
+
+
+class Sale(models.Model):
+    product = models.ForeignKey(Product)
+    quantity = models.IntegerField(null=False, default=1)
+    ticket = models.ForeignKey(Ticket)
+    price = models.IntegerField(null=False)

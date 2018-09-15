@@ -1,20 +1,17 @@
 from models import *
 from django.http import HttpResponse
-import json
 import httplib
-from httplib import responses as rp
-#DELETE AFTER
 from django.views.decorators.csrf import csrf_exempt
 import jwt
 from datetime import datetime, timedelta
 from django.contrib.auth import authenticate
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import QueryDict
+import commons as cm
+from django.http import JsonResponse
+from enumerations import UserKind
+import json
 
 
-
-file = open("key.pem","r")
-SERVER_KEY = file.read()
 TOKEN_LIFE = 3600
 
 @csrf_exempt
@@ -28,7 +25,7 @@ def createUser(request):
         try:
             kind = int(kind)
         except ValueError:
-            return HttpResponse(json.dumps({"Error":"Kind must be an integer value"}), content_type="application/json",
+            return JsonResponse({"error":"Kind must be an integer value"}, content_type="application/json",
                                 status=httplib.PRECONDITION_FAILED)
 
         if password == repeatPass:
@@ -38,15 +35,16 @@ def createUser(request):
             newUser.save()
             newGeneral = GeneralUser(user=newUser, kind=kind)
             newUser.save()
+            newGeneral.save()
         else:
-            return HttpResponse(json.dumps({"Error": "Passwords does not match"}), content_type="application/json",
+            return JsonResponse({"error": "Passwords does not match"}, content_type="application/json",
                                 status=httplib.PRECONDITION_FAILED)
 
     else:
-        return HttpResponse(json.dumps({"Error": "POST method is required"}), content_type="application/json",
+        return JsonResponse({"error": "POST method is required"}, content_type="application/json",
                             status=httplib.BAD_REQUEST)
 
-    return HttpResponse(json.dumps({"Success": "User created successfully"}), content_type="application/json",
+    return JsonResponse({"success": "User created successfully"}, content_type="application/json",
                         status=httplib.CREATED)
 
 
@@ -55,6 +53,7 @@ def login(request):
     if request.method == 'POST':
         usuario = request.POST.get('user')
         password = request.POST.get('password')
+        SERVER_KEY = cm.getKey()
 
         user = authenticate(username=usuario, password=password)
 
@@ -62,21 +61,22 @@ def login(request):
             try:
                 queryUser = User.objects.get(username=usuario)
                 if queryUser.check_password(password):
-                    data = {"UserId": queryUser.pk, "exp": datetime.utcnow() + timedelta(seconds=TOKEN_LIFE)}
+                    data = {"userId": queryUser.pk, "exp": datetime.utcnow() + timedelta(seconds=TOKEN_LIFE)}
                     token = jwt.encode(data, SERVER_KEY, algorithm='HS256')
 
-                    return HttpResponse(json.dumps({"token": token}), content_type="application/json",
+                    return JsonResponse({"token": token}, content_type="application/json",
                                         status=httplib.ACCEPTED)
                 else:
-                    return HttpResponse(json.dumps({"Error": "Bad user or password"}), content_type="application/json",
+                    return JsonResponse({"error": "Bad user or password"}, content_type="application/json",
                                         status=httplib.UNAUTHORIZED)
 
             except ObjectDoesNotExist:
-                return HttpResponse(json.dumps({"Error": "Bad user or password"}), content_type="application/json",
+                return JsonResponse({"error": "Bad user or password"}, content_type="application/json",
                                     status=httplib.UNAUTHORIZED)
 
 
-    return HttpResponse(json.dumps({"Error": "Bad user or password"}), content_type="application/json", status=httplib.UNAUTHORIZED)
+    return JsonResponse({"error": "Bad user or password"}, content_type="application/json", status=httplib.UNAUTHORIZED)
+
 
 
 @csrf_exempt
@@ -87,94 +87,71 @@ def createProduct(request):
         stock = request.POST.get('stock')
         price = request.POST.get('price')
 
-        info = request.META['HTTP_AUTHORIZATION']
-        try:
-            data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
-            print "Datos: ", data
-        except jwt.ExpiredSignature:
-            return HttpResponse(json.dumps({"Error": "Expired token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
-        except jwt.InvalidTokenError:
-            return HttpResponse(json.dumps({"Error": "Invalid token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
+        user = cm.checkToken(request)
+        if not isinstance(user, User):
+            return user
 
-
-        newProduct = Product(name=name, npc=npc, stock=int(stock), price=int(price))
-        try:
-            newProduct.save()
-            return HttpResponse(json.dumps({"Success": "A new product has been created!"}), content_type="application/json",
-                                status=httplib.CREATED)
-        except ValueError:
-            return HttpResponse(json.dumps({"Error": "Bad information"}), content_type="application/json",
-                                status=httplib.PRECONDITION_FAILED)
+        permission = GeneralUser.objects.get(user=user)
+        if permission.kind is UserKind.admin.value:
+            newProduct = Product(name=name, npc=npc, stock=int(stock), price=int(price))
+            try:
+                newProduct.save()
+                return JsonResponse({"success": "A new product has been created!"}, content_type="application/json",
+                                    status=httplib.CREATED)
+            except ValueError:
+                return JsonResponse({"error": "Bad information"}, content_type="application/json",
+                                    status=httplib.PRECONDITION_FAILED)
+        else:
+            return JsonResponse({"error":"Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
     else:
-        return HttpResponse(json.dumps({"Error": "Post method is required"}), content_type="application/json",
+        return JsonResponse({"error": "Post method is required"}, content_type="application/json",
                             status=httplib.BAD_REQUEST)
 
 
 def getProduct(request, id):
     id = int(id)
-    info = request.META['HTTP_AUTHORIZATION']
-
-    try:
-        data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
-        print "Datos: ", data
-    except jwt.ExpiredSignature:
-        return HttpResponse(json.dumps({"Error": "Expired token"}), content_type="application/json",
-                            status=httplib.UNAUTHORIZED)
-    except jwt.InvalidTokenError:
-        return HttpResponse(json.dumps({"Error": "Invalid token"}), content_type="application/json",
-                            status=httplib.UNAUTHORIZED)
 
     try:
         product = Product.objects.get(pk=id)
-        data = {"ID":product.pk, "Name":product.name, "NPC":product.npc, "Stock":str(product.stock),
+        data = {"id":product.pk, "Name":product.name, "NPC":product.npc, "Stock":str(product.stock),
                 "Price": str(product.price), "likes": product.likes ,"last_update": str(product.last_update)}
-        dataJson = json.dumps(data)
 
-        return HttpResponse(dataJson, content_type="application/json",
-                            status=httplib.OK)
+        return JsonResponse(data, content_type="application/json",
+                            status=httplib.OK, safe=False)
     except ObjectDoesNotExist:
-        return HttpResponse(json.dumps({"Error": "Product does not exists"}), content_type="application/json",
+        return JsonResponse({"error": "Product does not exists"}, content_type="application/json",
                             status=httplib.NOT_FOUND)
 
 @csrf_exempt
 def updateProductPrice(request):
     if request.method == 'POST':
-        # body = QueryDict(request.body)
-        # print body.getlist('id')
-        # id = request.GET.get('id')
-        # body = json.dumps(request.body)
-
         newPrice = request.POST.get('price')
         id = request.POST.get('id')
         id = int(id)
 
-        info = request.META['HTTP_AUTHORIZATION']
-        try:
-            data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
-            print "Datos: ", data
-        except jwt.ExpiredSignature:
-            return HttpResponse(json.dumps({"Error": "Expired token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
-        except jwt.InvalidTokenError:
-            return HttpResponse(json.dumps({"Error": "Invalid token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
+        user = cm.checkToken(request)
+        if not isinstance(user, User):
+            return user
 
-        try:
-            product = Product.objects.get(pk=id)
-            product.price = int(newPrice)
-            product.last_update = datetime.utcnow()
-            product.save()
+        permission = GeneralUser.objects.get(user=user)
+        if permission.kind is UserKind.admin.value:
 
-            return HttpResponse(json.dumps({"Success": "Product has been updated!"}), content_type="application/json",
-                                status=httplib.OK)
-        except ObjectDoesNotExist:
-            return HttpResponse(json.dumps({"Error": "Product does not exist"}), content_type="application/json",
-                                status=httplib.NOT_FOUND)
+            try:
+                product = Product.objects.get(pk=id)
+                product.price = int(newPrice)
+                product.last_update = datetime.utcnow()
+                product.save()
+
+                return JsonResponse({"success": "Product has been updated!"}, content_type="application/json",
+                                    status=httplib.OK)
+            except ObjectDoesNotExist:
+                return JsonResponse({"error": "Product does not exist"}, content_type="application/json",
+                                    status=httplib.NOT_FOUND)
+        else:
+            return JsonResponse({"error":"Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
 
     else:
-        return HttpResponse(json.dumps({"Error": "POST method is required"}), content_type="application/json",
+        return JsonResponse({"error": "POST method is required"}, content_type="application/json",
                             status=httplib.BAD_REQUEST)
 
 
@@ -184,30 +161,175 @@ def deleteProduct(request):
         id = request.POST.get('id')
         id = int(id)
 
-        info = request.META['HTTP_AUTHORIZATION']
-        try:
-            data = jwt.decode(info, SERVER_KEY, algorithms=['HS256'])
-            print "Datos: ", data
-        except jwt.ExpiredSignature:
-            return HttpResponse(json.dumps({"Error": "Expired token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
-        except jwt.InvalidTokenError:
-            return HttpResponse(json.dumps({"Error": "Invalid token"}), content_type="application/json",
-                                status=httplib.UNAUTHORIZED)
+        user = cm.checkToken(request)
+        if not isinstance(user, User):
+            return user
 
-        try:
-            product = Product.objects.get(pk=id)
-            product.delete()
+        permission = GeneralUser.objects.get(user=user)
+        if permission.kind is UserKind.admin.value:
+            try:
+                product = Product.objects.get(pk=id)
+                product.delete()
 
-            return HttpResponse(json.dumps({"Success": "Product has been deleted!"}),
-                                content_type="application/json",
-                                status=httplib.OK)
-        except ObjectDoesNotExist:
-            return HttpResponse(json.dumps({"Error": "Product does not exist"}), content_type="application/json",
-                                status=httplib.NOT_FOUND)
+                return JsonResponse({"success": "Product has been deleted!"},
+                                    content_type="application/json",
+                                    status=httplib.OK)
+            except ObjectDoesNotExist:
+                return JsonResponse({"error": "Product does not exist"}, content_type="application/json",
+                                    status=httplib.NOT_FOUND)
+        else:
+            return JsonResponse({"error":"Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
 
     else:
-        return HttpResponse(json.dumps({"Error": "POST method is required"}), content_type="application/json",
+        return JsonResponse({"error": "POST method is required"}, content_type="application/json",
                             status=httplib.BAD_REQUEST)
+
+
+
+def getAllProducts(request, orderby):
+    productList = []
+
+    try:
+        if str(orderby) == 'name':
+            products = Product.objects.all().order_by('name')
+        else:
+            products = Product.objects.all().order_by('-likes')
+
+        for product in products:
+            data = {"id":str(product.pk), "Name":product.name, "NPC":product.npc, "Stock":str(product.stock),
+                    "Price": str(product.price), "likes": product.likes ,"last_update": str(product.last_update)}
+            productList.append(data)
+
+        return JsonResponse(productList, content_type="application/json",
+                            status=httplib.OK, safe=False)
+    except ObjectDoesNotExist:
+        return JsonResponse({"error": "Product does not exists"}, content_type="application/json",
+                            status=httplib.NOT_FOUND, safe=False)
+
+
+
+def getProductByName(request, name):
+    productList = []
+    dataJson = {}
+
+    try:
+        products = Product.objects.filter(name__contains=name)
+    except ObjectDoesNotExist:
+        return JsonResponse({"error": "Product does not exists"}, content_type="application/json",
+                            status=httplib.NOT_FOUND)
+
+    if products:
+        for product in products:
+            data = {"id": str(product.pk), "Name": product.name, "NPC": product.npc, "Stock": str(product.stock),
+                    "Price": str(product.price), "likes": product.likes, "last_update": str(product.last_update)}
+            productList.append(data)
+
+        return JsonResponse(productList, content_type="application/json",
+                            status=httplib.OK, safe=False)
+    else:
+        return JsonResponse({"error": "No results found"}, content_type="application/json",
+                            status=httplib.NO_CONTENT)
+
+
+@csrf_exempt
+def likeProduct(request):
+    if request.method == 'POST':
+        productId = request.POST.get('productId')
+
+        user = cm.checkToken(request)
+        if not isinstance(user, User):
+            return user
+
+        permission = GeneralUser.objects.get(user=user)
+        if permission.kind is UserKind.registered.value:
+
+            if cm.isLiked(user, productId):
+                return JsonResponse({"warning": "That product already likes you"}, content_type="application/json",
+                                    status=httplib.NOT_ACCEPTABLE)
+            else:
+                try:
+                    product = Product.objects.get(pk=productId)
+                except ObjectDoesNotExist:
+                    return JsonResponse({"error": "Product does not exists"}, content_type="application/json",
+                                        status=httplib.NOT_FOUND)
+
+                product.likes = int(product.likes) + 1
+                product.save()
+
+                queryUser = User.objects.get(pk=user.pk)
+                up = UserLikeProduct(user=queryUser, product=product)
+                up.save()
+                return JsonResponse({"success": "Like Saved!"}, content_type="application/json",
+                                    status=httplib.OK)
+        else:
+            return JsonResponse({"error":"Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
+
+
+
+@csrf_exempt
+def buyProduct(request):
+    if request.method == 'POST':
+        productId = request.POST.get('productId')
+        quantity = int(request.POST.get('quantity'))
+
+        user = cm.checkToken(request)
+        if not isinstance(user, User):
+            return user
+
+        permission = GeneralUser.objects.get(user=user)
+        if permission.kind is UserKind.registered.value:
+            try:
+                product = Product.objects.get(pk=productId)
+            except ObjectDoesNotExist:
+                return JsonResponse({"error": "Product does not exist"}, content_type="application/json",
+                                    status=httplib.NO_CONTENT)
+
+            if product.stock >= quantity:
+                total = product.price * quantity
+
+                newTicket = Ticket(total=total, buyer=user)
+                newTicket.save()
+
+                newSale = Sale(product=product, ticket=newTicket, price=product.price, quantity=quantity)
+                product.stock = product.stock - quantity
+                product.save()
+                newSale.save()
+
+                return JsonResponse({"success": "Purchase made successfully"}, content_type="application/json",
+                                    status=httplib.OK)
+            else:
+                return JsonResponse({"error": "Insufficient stock"}, content_type="application/json",
+                                    status=httplib.NOT_ACCEPTABLE)
+        else:
+            return JsonResponse({"error":"Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
+
+
+
+def salesLog(request):
+    salesList =[]
+
+    user = cm.checkToken(request)
+    if not isinstance(user, User):
+        return user
+
+    permission = GeneralUser.objects.get(user=user)
+    if permission.kind is UserKind.registered.value:
+        tickets = Ticket.objects.all()
+
+        for ticket in tickets:
+            sale = Sale.objects.get(ticket=ticket)
+            data = {"id":ticket.pk, "date":str(ticket.date), "total":str(ticket.total), "product":sale.product.name,
+                    "quantity":sale.quantity, "price":str(sale.price), "buyer":ticket.buyer.username}
+            salesList.append(data)
+
+        return JsonResponse(salesList, content_type="application/json", status=httplib.OK, safe=False)
+    else:
+        return JsonResponse({"error": "Forbidden"}, content_type="application/json", status=httplib.FORBIDDEN)
+
+
+
+
+
+
 
 
