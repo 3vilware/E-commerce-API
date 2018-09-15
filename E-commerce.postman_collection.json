@@ -303,6 +303,44 @@
 			"response": []
 		},
 		{
+			"name": "Delete product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "your_token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/deleteProduct/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"deleteProduct",
+						""
+					]
+				},
+				"description": "Requires admin permission"
+			},
+			"response": []
+		},
+		{
 			"name": "Buy a product",
 			"request": {
 				"method": "POST",
