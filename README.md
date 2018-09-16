@@ -282,7 +282,10 @@ Request body:
 
 
 ## Live Demo 🚀
-
+You can check the live demo deployed on Heroku here:
+```
+https://e-commerc-test.herokuapp.com/api/v1
+```
 
 
 ## Test in Postman
