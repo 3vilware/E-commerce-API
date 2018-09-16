@@ -28,6 +28,7 @@ Type on project root:
   - [GET /getProductByName/[name]](#get-getproductbynamename)	
   - [GET /getAllProducts/[orderby]](#get-getallproductsorderby)
   - [POST /updateProductPrice](#post-updateproductprice)
+  - [POST /deleteProduct](#post-deleteproduct)
   - [POST /likeProduct](#post-likeproduct)
   - [POST /buyProduct](#post-buyproduct)
   - [POST /salesLog](#post-saleslog)
@@ -191,6 +192,26 @@ Request body:
 	}
   
 > Code: `200 OK` <br />
+
+### POST /deleteProduct
+
+Example: http://example.com/api/v1/deleteProduct
+
+Request body:
+
+	{
+	   "id" : "1",
+	}
+> Authorization header: [token]
+  
+ Good response: <br />
+ 
+	{
+	   "success": "Product has been deleted!"
+	}
+  
+> Code: `200 OK` <br />
+
 
 
 ### POST /likeProduct
