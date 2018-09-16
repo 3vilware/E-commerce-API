@@ -3,3 +3,4 @@ pyjwt
 enum
 django-heroku
 gunicorn
+dj-database-url
