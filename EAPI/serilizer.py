@@ -8,11 +8,11 @@ from django.contrib.auth import authenticate
 from django.core.exceptions import ObjectDoesNotExist
 import commons as cm
 from django.http import JsonResponse
-from enumerations import UserKind
-import json
 
 
 TOKEN_LIFE = 1800
+ADMIN = 1
+REGISTERED = 2
 
 @csrf_exempt
 def createUser(request):
@@ -92,7 +92,7 @@ def createProduct(request):
             return user
 
         permission = GeneralUser.objects.get(user=user)
-        if permission.kind is UserKind.admin.value:
+        if permission.kind is ADMIN:
             newProduct = Product(name=name, npc=npc, stock=int(stock), price=int(price))
             try:
                 newProduct.save()
@@ -134,7 +134,7 @@ def updateProductPrice(request):
             return user
 
         permission = GeneralUser.objects.get(user=user)
-        if permission.kind is UserKind.admin.value:
+        if permission.kind is ADMIN:
 
             try:
                 product = Product.objects.get(pk=id)
@@ -166,7 +166,7 @@ def deleteProduct(request):
             return user
 
         permission = GeneralUser.objects.get(user=user)
-        if permission.kind is UserKind.admin.value:
+        if permission.kind is ADMIN:
             try:
                 product = Product.objects.get(pk=id)
                 # product.delete()
@@ -243,7 +243,7 @@ def likeProduct(request):
             return user
 
         permission = GeneralUser.objects.get(user=user)
-        if permission.kind is UserKind.registered.value:
+        if permission.kind is REGISTERED:
 
             if cm.isLiked(user, productId):
                 return JsonResponse({"warning": "That product already likes you"}, content_type="application/json",
@@ -279,7 +279,7 @@ def buyProduct(request):
             return user
 
         permission = GeneralUser.objects.get(user=user)
-        if permission.kind is UserKind.registered.value:
+        if permission.kind is REGISTERED:
             try:
                 product = Product.objects.get(pk=productId)
             except ObjectDoesNotExist:
@@ -315,7 +315,7 @@ def salesLog(request):
         return user
 
     permission = GeneralUser.objects.get(user=user)
-    if permission.kind is UserKind.admin.value:
+    if permission.kind is ADMIN:
         tickets = Ticket.objects.all()
 
         if tickets:
