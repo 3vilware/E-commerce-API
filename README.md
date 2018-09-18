@@ -1,6 +1,6 @@
 Setup
 -----
-The application works in Python 2.7 and 3.X. <br/>
+The application works in Python 2.7. <br/>
 You can install the dependencies using pip under clone repository:
 
 	$ pip install -r requirements.txt
@@ -282,7 +282,10 @@ Request body:
 
 
 ## Live Demo 🚀
-
+You can check live demo deployed on Heroku here:
+```
+https://e-commerc-test.herokuapp.com/api/v1
+```
 
 
 ## Test in Postman
